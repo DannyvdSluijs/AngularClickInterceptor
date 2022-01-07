@@ -1,32 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
-import { HrefInterceptorService } from './Services/HrefInterceptorService';
-import { HomeComponent } from './Components/home.component';
-
-const appRoutes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-    data: { title: 'Home' },
-  },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-];
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent
+  ],
   imports: [
     BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: false }),
+    AppRoutingModule
   ],
-  exports: [RouterModule],
-  declarations: [AppComponent, HelloComponent],
-  bootstrap: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(hrefInterceptorService: HrefInterceptorService) {}
+export class AppModule { 
+  
 }
